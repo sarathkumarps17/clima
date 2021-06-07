@@ -1,6 +1,9 @@
 import '../services/location.dart';
 import '../services/networking.dart';
-import '../utilities/constants.dart';
+
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+var API_Key = dotenv.env['API_key'];
 
 Location location = Location();
 
@@ -43,7 +46,7 @@ class WeatherModel {
     late Map weatherData;
     NetworkHelper api = NetworkHelper(
         uri:
-            'http://api.openweathermap.org/data/2.5/forecast?q=$cityName&appid=$kAPI_ID');
+            'http://api.openweathermap.org/data/2.5/forecast?q=$cityName&appid=$API_Key');
     try {
       return weatherData = await api.getData();
     } catch (e) {
@@ -64,7 +67,7 @@ class WeatherModel {
     double longitude = location.longitude;
     NetworkHelper api = NetworkHelper(
         uri:
-            'http://api.openweathermap.org/data/2.5/forecast?lat=$latitude&lon=$longitude&appid=$kAPI_ID');
+            'http://api.openweathermap.org/data/2.5/forecast?lat=$latitude&lon=$longitude&appid=$API_Key');
     try {
       return weatherData = await api.getData();
     } catch (e) {

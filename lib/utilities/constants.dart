@@ -19,4 +19,3 @@ const kButtonTextStyle = TextStyle(
 const kConditionTextStyle = TextStyle(
   fontSize: 25.0,
 );
-const kAPI_ID = '6b1f6f5f3ed58b47001da044c98d65eb';
